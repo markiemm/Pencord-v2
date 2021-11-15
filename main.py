@@ -13,7 +13,8 @@ bot.remove_command("help")
 
 for filename in os.listdir('./modules'):
     if filename.endswith('.py'):
-        bot.load_extension(f'cogs.{filename[:-3]}')
+        bot.load_extension(f'modules.{filename[:-3]}')
+        print("Successfully added modules")
 
 
 @bot.event
