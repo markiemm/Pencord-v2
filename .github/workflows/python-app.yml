@@ -8,7 +8,10 @@ on:
     branches: [ Development ]
   pull_request:
     branches: [ Development ]
-
+=======
+    branches: [ Development ]
+  pull_request:
+    branches: [ Development ]
 jobs:
   build:
 
