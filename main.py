@@ -26,6 +26,7 @@ async def on_ready():
     print("-"*22)
     print("Changeing Rich Presence...")
     await bot.change_presence(activity=discord.Game(RICH_PRESENCE_STATUS))
+    print("Rich Presence has been changed to " + RICH_PRESENCE_STATUS)
 
 
 bot.run(BOT_TOKEN)
