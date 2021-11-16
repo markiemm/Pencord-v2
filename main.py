@@ -1,6 +1,6 @@
 import os, sys, json, platform, discord, random
 from discord.ext import commands, tasks
-from config import BOT_TOKEN, COMMAND_PREFIX, RICH_PRESENCE_STATUS, STATUS_ROTATE_TIMER
+from config import BOT_TOKEN, COMMAND_PREFIX, RICH_PRESENCE_STATUS
 
 if not os.path.isfile("config.py"):
     sys.exit("'config.py' file could not be detected!")
@@ -24,12 +24,8 @@ async def on_ready():
     print(f"Python version: {platform.python_version()}")
     print(f"Running on: {platform.system()} {platform.release()} ({os.name})")
     print("-"*22)
-    status_task.start()
-
-@tasks.loop(minutes=float(STATUS_ROTATE_TIMER))
-async def status_task():
-    await bot.change_presence(activity=discord.Game(random.choice(RICH_PRESENCE_STATUS)))
-
+    print("Changeing Rich Presence...")
+    await bot.change_presence(activity=discord.Game(RICH_PRESENCE_STATUS))
 
 
 bot.run(BOT_TOKEN)
